@@ -1,0 +1,89 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_local_multichannel_ops_hub
+  name: 多平台运营中台
+  alias: null
+  repo: de-local-multichannel-ops-hub
+  card_no: 7.4.8 ⑦
+  group: local
+  group_label: 本地生活服务商家
+  phase: '**P2 后期**（等 P0/P1 连接器资产沉淀后低成本拼装）'
+  complexity: '**L**（多平台连接器矩阵）'
+  score: 19
+  price: 50–150 元/月（据 R4 调研）；**代配置服务加成：300–600 元/次**（三平台账号授权与数据打通代办）；**不单卖，只做组合包底盘**
+  channels:
+  - GitHub（必备）
+  - Dify Marketplace
+  - Coze 扣子商店
+  - 腾讯 WorkBuddy Skill 市场（工具市场型渠道为主，不做内容平台推广）
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 一次编辑，三平台同步的跨平台传送带
+  users: 已同时运营美团+抖音+小红书的进阶门店（能同步多平台的商家不足三成，据 R4 调研）
+  boundary: '**做**：内容规格适配、团购信息同步、数据跨平台汇总；**不做**：不做自动发布（平台风控红线）、不做跨平台刷量'
+  kpi: 三平台信息一致率 100%；单条内容多平台分发耗时 ≤10 分钟
+  roi_summary: 单点痛感弱，但作为组合资产把 P0 三个智能体的数据串成一盘棋，续费锁定价值大
+  demand_refs:
+  - D11
+  - D02
+  demand_support: 充分
+  demand_evidence: 中
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: data-dashboard-builder
+    name: 数据聚合看板
+    kind: private
+    path: skills/data-dashboard-builder
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: multichannel-connector
+    name: 多平台连接
+    kind: private
+    path: skills/multichannel-connector
+    version: 1.0.0
+    maturity: contract-complete
+  workflows:
+  - slug: wf-local-hub-content-adapt
+    name: 内容一稿多投适配
+    path: workflows/wf-local-hub-content-adapt
+    version: 1.0.0
+    phase: P2
+    calls:
+    - platform-format-adapter
+  - slug: wf-local-hub-groupbuy-sync
+    name: 团购信息多平台同步
+    path: workflows/wf-local-hub-groupbuy-sync
+    version: 1.0.0
+    phase: P2
+    calls:
+    - multichannel-connector
+  - slug: wf-local-hub-data-merge
+    name: 评价/数据跨平台汇总
+    path: workflows/wf-local-hub-data-merge
+    version: 1.0.0
+    phase: P2
+    calls:
+    - multichannel-connector
+    - data-dashboard-builder
+  - slug: wf-local-hub-unified-view
+    name: 周度运营看板
+    path: workflows/wf-local-hub-unified-view
+    version: 1.0.0
+    phase: P2
+    calls:
+    - data-dashboard-builder
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - platform-format-adapter
+  resolution: external
+spec_only_dependencies: []
