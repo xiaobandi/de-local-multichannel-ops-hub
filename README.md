@@ -7,6 +7,19 @@
 
 ![架构](docs/images/architecture.svg)
 
+## 效果（真实执行）
+
+![真实效果](workflows/wf-local-hub-content-adapt/docs/images/00-effect.png)
+
+*上图为**真实效果对比**，不是示意图：左栏是输入材料与要求，右栏是该次执行的产出原文，
+两栏取自同一次真实执行记录。*
+
+- 完整台账：[`reports/real-run/wf-local-hub-content-adapt.md`](reports/real-run/wf-local-hub-content-adapt.md)
+- 录屏与终端回放：[`workflows/wf-local-hub-content-adapt/docs/images/`](workflows/wf-local-hub-content-adapt/docs/images/)（`08-demo-run.gif` / `08-demo-run.mp4` / `04-terminal-run.png`）
+- 使用示例：[`workflows/wf-local-hub-content-adapt/docs/使用示例.md`](workflows/wf-local-hub-content-adapt/docs/使用示例.md)
+> 实测判定：**通过**　·　可用度 4/5　·　编造数字 0 处　·　红线命中 0 次 / 拦截 0 次
+
+
 **一句话**：已同时运营美团+抖音+小红书的进阶门店（能同步多平台的商家不足三成，据 R4 调研）
 
 ---
@@ -97,7 +110,7 @@ de-local-multichannel-ops-hub/
 
 | 项 | 值 |
 |---|---|
-| 技能文件数 | 52 |
+| 技能文件数 | 102 |
 | 多场景用例数 | 180 |
 | 用例通过 | 180 |
 | 验收结论 | ✅ 通过 |

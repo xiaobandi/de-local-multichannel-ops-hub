@@ -1,0 +1,15 @@
+{
+  "name": "wf-local-hub-groupbuy-sync",
+  "title": "团购信息多平台同步",
+  "kind": "workflow",
+  "owner": "de-local-multichannel-ops-hub",
+  "complexity": "L（各平台无开放写接口，需半自动）",
+  "phase": "P2",
+  "one_liner": "套餐变更 → 各平台上架信息核对清单",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

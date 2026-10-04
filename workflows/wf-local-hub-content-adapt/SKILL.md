@@ -1,52 +1,59 @@
 ---
-name: wf-local-hub-unified-view
+name: wf-local-hub-content-adapt
 description: >-
-  多平台运营中台 的「周度运营看板」工作流：跨平台投入产出对比 → 平台侧重建议。触发方式：定时（每周一）。
-  当用户要完成「周度运营看板」这件事、或触发了上述条件时使用。
+  多平台运营中台 的「内容一稿多投适配」工作流：单稿 → 三平台字数/格式/标签适配版本。触发方式：人工（投喂单稿）。
+  当用户要完成「内容一稿多投适配」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_local_multichannel_ops_hub
+  repo: de-local-multichannel-ops-hub
+  visibility: private_to_employee
+  delivery: employee
   complexity: S
   phase: P2
-  source: library
+  source: new
 ---
 
-# 周度运营看板
+# 内容一稿多投适配
 
-> 归属：**多平台运营中台**（`de-local-multichannel-ops-hub`）　触发：定时（每周一）　
+> 归属：**多平台运营中台**（`de-local-multichannel-ops-hub`）　触发：人工（投喂单稿）　
 > 复杂度 S　阶段 P2
 
 ## 一、这条工作流解决什么
 
-跨平台投入产出对比 → 平台侧重建议
+单稿 → 三平台字数/格式/标签适配版本
 
-**业务收益**：告诉老板哪个平台值得加码
+**业务收益**：每条内容省 30 分钟重复劳动
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `数据聚合看板` | `data-dashboard-builder` | 本仓 | v1.0.0 |
+| `平台格式适配` | `platform-format-adapter` | core | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：跨平台投入产出对比
+### 步骤 1：单稿
 
-- **做**：跨平台投入产出对比
+- **做**：单稿
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：平台侧重建议
+### 步骤 2：三平台字数/格式/标签适配版本
 
-- **做**：平台侧重建议
+- **做**：三平台字数/格式/标签适配版本
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式

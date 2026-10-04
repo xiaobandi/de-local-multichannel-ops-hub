@@ -1,0 +1,15 @@
+{
+  "name": "multichannel-connector",
+  "title": "多平台连接",
+  "kind": "skill",
+  "owner": "de-local-multichannel-ops-hub",
+  "complexity": "M",
+  "phase": "P2",
+  "one_liner": "美团/抖音/小红书数据读取（BusinessConnector）（多平台授权 → 统一数据流）",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

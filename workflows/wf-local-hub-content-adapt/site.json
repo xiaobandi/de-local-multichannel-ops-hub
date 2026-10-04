@@ -1,0 +1,15 @@
+{
+  "name": "wf-local-hub-content-adapt",
+  "title": "内容一稿多投适配",
+  "kind": "workflow",
+  "owner": "de-local-multichannel-ops-hub",
+  "complexity": "S",
+  "phase": "P2",
+  "one_liner": "单稿 → 三平台字数/格式/标签适配版本",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

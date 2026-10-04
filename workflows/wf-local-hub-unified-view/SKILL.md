@@ -1,52 +1,59 @@
 ---
-name: wf-local-hub-groupbuy-sync
+name: wf-local-hub-unified-view
 description: >-
-  多平台运营中台 的「团购信息多平台同步」工作流：套餐变更 → 各平台上架信息核对清单。触发方式：人工触发+定时校验。
-  当用户要完成「团购信息多平台同步」这件事、或触发了上述条件时使用。
+  多平台运营中台 的「周度运营看板」工作流：跨平台投入产出对比 → 平台侧重建议。触发方式：定时（每周一）。
+  当用户要完成「周度运营看板」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_local_multichannel_ops_hub
-  complexity: L（各平台无开放写接口，需半自动）
+  repo: de-local-multichannel-ops-hub
+  visibility: private_to_employee
+  delivery: employee
+  complexity: S
   phase: P2
-  source: new
+  source: library
 ---
 
-# 团购信息多平台同步
+# 周度运营看板
 
-> 归属：**多平台运营中台**（`de-local-multichannel-ops-hub`）　触发：人工触发+定时校验　
-> 复杂度 L（各平台无开放写接口，需半自动）　阶段 P2
+> 归属：**多平台运营中台**（`de-local-multichannel-ops-hub`）　触发：定时（每周一）　
+> 复杂度 S　阶段 P2
 
 ## 一、这条工作流解决什么
 
-套餐变更 → 各平台上架信息核对清单
+跨平台投入产出对比 → 平台侧重建议
 
-**业务收益**：避免"抖音有券美团没改"的客诉
+**业务收益**：告诉老板哪个平台值得加码
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `多平台连接` | `multichannel-connector` | 本仓 | v1.0.0 |
+| `数据聚合看板` | `data-dashboard-builder` | 本仓 | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：套餐变更
+### 步骤 1：跨平台投入产出对比
 
-- **做**：套餐变更
+- **做**：跨平台投入产出对比
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：各平台上架信息核对清单
+### 步骤 2：平台侧重建议
 
-- **做**：各平台上架信息核对清单
+- **做**：平台侧重建议
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
