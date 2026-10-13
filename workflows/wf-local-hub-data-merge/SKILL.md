@@ -3,7 +3,7 @@ name: wf-local-hub-data-merge
 description: >-
   多平台运营中台 的「评价/数据跨平台汇总」工作流：三平台评价/订单数据 → 统一面板。触发方式：定时（每日）。
   当用户要完成「评价/数据跨平台汇总」这件事、或触发了上述条件时使用。
-license: Proprietary
+license: Apache-2.0
 compatibility: >-
   需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
   跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。

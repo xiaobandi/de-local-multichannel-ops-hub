@@ -17,7 +17,7 @@ metadata:
   - Dify Marketplace
   - Coze 扣子商店
   - 腾讯 WorkBuddy Skill 市场（工具市场型渠道为主，不做内容平台推广）
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 一次编辑，三平台同步的跨平台传送带
